@@ -1,20 +1,16 @@
-import React from "react";
+import Task from "./Task";
 
-const TaskList = () => {
+const TaskList = ({ taskList, handleComplete, handleEdit }) => {
   return (
     <ul>
-      <li>
-        <p>Aprender Html</p>
-      </li>
-      <li>
-        <p>Aprender CSS</p>
-      </li>
-      <li>
-        <p>Aprender React</p>
-      </li>
-      <li>
-        <p>Aprender Servidores Web</p>
-      </li>
+      {taskList.map((task) => (
+        <Task
+          handleComplete={handleComplete}
+          key={task.id}
+          task={task}
+          handleEdit={handleEdit}
+        />
+      ))}
     </ul>
   );
 };
